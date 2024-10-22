@@ -1,6 +1,6 @@
 #celsius to fahrenheit
 
-celsius=float(input("enter temperature in celcius: "))
+celsius=float(input("enter temperature in celsius: "))
 #user will imput temperature in  celsius
 
 fahrenheit = ((celsius*9)/5)+32
