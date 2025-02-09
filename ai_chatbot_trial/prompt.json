@@ -1,0 +1,129 @@
+Analyze the text prompt and determine if it represents a specific, recognizable food item. 
+If it is, provide the name of the item and any relevant details (e.g., cuisine, ingredients, 
+description, etc.). If the provided text doesn't clearly depict a specific food item, return an 
+appropriate message indicating that the subject could not be identified or that the information 
+is unavailable.
+   {
+  "food_item": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of the food item."
+      },
+      "cuisine": {
+        "type": "string",
+        "description": "Cuisine the food item belongs to."
+      },
+      "description": {
+        "type": "string",
+        "description": "A brief description of the food item."
+      },
+      "ingredients": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of key ingredients."
+      },
+      "preparation": {
+        "type": "string",
+        "description": "Brief overview of the preparation method."
+      },
+      "serving_suggestions": {
+        "type": "string",
+        "description": "Suggestions on how to serve the food item."
+      },
+      "origin": {
+        "type": "string",
+        "description": "Region or country where the food item originated."
+      },
+       "nutrition": {
+        "type": "object",
+        "properties": {
+          "calories": {
+            "type": "integer",
+            "description": "Approximate calories per serving."
+          },
+          "protein": {
+            "type": "number",
+            "format": "float",
+            "description": "Protein content per serving (grams)."
+          },
+          "fat": {
+            "type": "number",
+            "format": "float",
+            "description": "Fat content per serving (grams)."
+          },
+          "carbohydrates": {
+            "type": "number",
+            "format": "float",
+            "description": "Carbohydrate content per serving (grams)."
+          }
+        },
+        "description": "Basic nutritional information (may not be exhaustive)."
+      }
+    },
+    "required": [
+      "name", "cuisine", "description"
+    ]
+  },
+  "message": {
+    "type": "string",
+    "description": "A message providing context or additional information."
+  }
+}
+here are few examples for you
+
+{
+  "food_item": {
+    "name": "Chicken Tikka Masala",
+    "cuisine": "Indian",
+    "description": "A popular dish consisting of marinated chicken pieces cooked in a tandoor (clay oven) and then simmered in a creamy, spiced tomato-based sauce.  It's often served with rice or naan bread.",
+    "ingredients": [
+      "Chicken",
+      "Yogurt",
+      "Tomatoes",
+      "Cream",
+      "Ginger",
+      "Garlic",
+      "Spices (e.g., garam masala, turmeric, cumin)"
+    ],
+    "preparation": "Chicken is marinated, grilled or baked, and then added to a sauce made with tomatoes, cream, and a blend of spices. It's typically simmered until the sauce thickens.",
+    "serving_suggestions": "Served hot with naan bread, rice, or roti.  Garnished with fresh cilantro.",
+    "origin": "While its origins are debated, it's widely believed to have originated in the United Kingdom, adapted from traditional Indian flavors.",
+    "nutrition": {
+      "calories": 400,
+      "protein": 30.5,
+      "fat": 20.2,
+      "carbohydrates": 15.7
+    }
+  },
+  "message": "Chicken Tikka Masala is a globally loved dish, though its exact origins remain a topic of discussion."
+}
+
+{
+  "food_item": {
+    "name": "Paella",
+    "cuisine": "Spanish",
+    "description": "A rice dish originating from Valencia, Spain. It typically includes various meats (chicken, rabbit, seafood), vegetables, and saffron-infused rice.  There are many regional variations.",
+    "ingredients": [
+      "Rice (typically Bomba)",
+      "Saffron",
+      "Chicken",
+      "Rabbit (or other meat)",
+      "Seafood (e.g., shrimp, mussels, clams)",
+      "Vegetables (e.g., peas, peppers, onions)"
+    ],
+    "preparation": "Rice is cooked in a large, shallow pan (paellera) with saffron, meats, seafood, and vegetables. The key is to achieve a socarrat (crispy bottom layer).",
+    "serving_suggestions": "Served hot, often directly from the paellera. Lemon wedges are a common accompaniment.",
+    "origin": "Valencia, Spain",
+    "nutrition": {
+      "calories": 550,
+      "protein": 25,
+      "fat": 28,
+      "carbohydrates": 45
+    }
+  },
+  "message": "Paella is a festive and flavorful dish, perfect for gatherings."
+}
